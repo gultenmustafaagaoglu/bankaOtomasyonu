@@ -12,19 +12,27 @@ public class Main {
 
         System.out.println("kac ayda odemek istediginizi giriniz:");
         double ay=input.nextDouble();
-                Faiz faiz = new Faiz();
-
+        Faiz faiz = new Faiz();
+        try {
+            System.out.println("Hesaplanİyor ");
+            for (int i = 3; i >= 0; i--) {
+                System.out.println( i + "...");
+                Thread.sleep(200);
+            }
+        } catch (InterruptedException exception) {
+            System.out.println("Sistem Hatasi");
+        }
         if (secim==1)
         {
             double sonuc = faiz.bireysel(tutar) + faiz.time(ay);
-            System.out.println("sonuc:"+sonuc);
+            System.out.println(tutar +"TL icin geri odeyeceginiz tutar:"+sonuc +" TL");
         }
         else if (secim==2){
             double sonuc = faiz.esnaf(tutar) + faiz.time(ay);
-            System.out.println("sonuc:"+sonuc);
+            System.out.println(tutar +"TL icin geri odeyeceginiz tutar:"+sonuc + " TL");
         }
         else {
-            System.out.println("Yanlis vade sectiniz!");
+            System.out.println(secim +"id li bir kredi secenegi bulunamadi!!!");
         }
     }
 }
